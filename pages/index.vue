@@ -1,5 +1,12 @@
 <template>
-  <Tutorial/>
+    <b-row>
+      <b-col>
+        Progress content
+      </b-col>
+      <b-col>
+        Detail view
+      </b-col>
+    </b-row>
 </template>
 
 <script lang="ts">

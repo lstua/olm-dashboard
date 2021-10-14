@@ -1,0 +1,18 @@
+$olm-primary: #00c4cc;
+$olm-secondary: #b2edef;
+$olm-grey: #e6e6e6;
+$olm-light-grey: #ececec;
+$olm-off-white: #fafafa;
+$olm-dark: #3b4848;
+
+$theme-colors: (
+  'olm-primary': $olm-primary,
+  'olm-secondary': $olm-secondary,
+  'olm-grey': $olm-grey,
+  'olm-light-grey': $olm-light-grey,
+  'olm-off-white': $olm-off-white,
+  'olm-dark': $olm-dark,
+);
+
+@import 'bootstrap/scss/bootstrap.scss';
+@import 'bootstrap-vue/src/index.scss';
