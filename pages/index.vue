@@ -1,16 +1,89 @@
 <template>
-    <b-row>
-      <b-col>
-        Progress content
-      </b-col>
-      <b-col>
-        Detail view
-      </b-col>
-    </b-row>
+  <b-row>
+    <b-col>
+      <div>
+        <div v-for="topic in topics" class="row mb-1">
+          <div class="ml-auto">{{ topic.title }}</div>
+          <div class="col-sm-8 pt-1">
+            <b-progress :key="topic.title" :max=100 height="2rem">
+              <b-progress-bar :value="topic.understood" variant="olm-primary"></b-progress-bar>
+              <b-progress-bar :value="topic.not_understood" variant="olm-secondary"></b-progress-bar>
+              <b-progress-bar :value="topic.can_improve" variant="olm-off-white"></b-progress-bar>
+              <b-progress-bar :value="topic.not_covered" variant="olm-grey"></b-progress-bar>
+            </b-progress>
+          </div>
+        </div>
+      </div>
+    </b-col>
+    <b-col>
+      Detail view
+    </b-col>
+  </b-row>
 </template>
 
-<script lang="ts">
-import Vue from 'vue'
-
-export default Vue.extend({})
+<script>
+export default {
+  data() {
+    return {
+      topics: [
+        {
+          title: "Engagement",
+          understood: 50.00,
+          not_understood: 0,
+          can_improve: 16.67,
+          not_covered: 33.33
+        },
+        {
+          title: "Assumed knowledge",
+          understood: 50,
+          not_understood: 50,
+          can_improve: 0,
+          not_covered: 0
+        },
+        {
+          title: "Python programming",
+          understood: 50.00,
+          not_understood: 50.00,
+          can_improve: 0,
+          not_covered: 0
+        },
+        {
+          title: "Unix",
+          understood: 75,
+          not_understood: 25,
+          can_improve: 0,
+          not_covered: 0
+        },
+        {
+          title: "Data representation",
+          understood: 83.33,
+          not_understood: 0,
+          can_improve: 0,
+          not_covered: 16.67
+        },
+        {
+          title: "Computer architecture",
+          understood: 50.00,
+          not_understood: 16.67,
+          can_improve: 0,
+          not_covered: 33.33
+        },
+        {
+          title: "Networks and security",
+          understood: 37.50,
+          not_understood: 12.50,
+          can_improve: 0,
+          not_covered: 50.00
+        },
+        {
+          title: "Cloud and containers",
+          understood: 0,
+          not_understood: 0,
+          can_improve: 0,
+          not_covered: 100
+        },
+      ]
+    }
+  }
+}
 </script>

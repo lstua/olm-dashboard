@@ -11,7 +11,7 @@
     <b-row>
       <b-col>
         <b-nav tabs justified class="shadow-sm mb-3">
-          <b-nav-item to="/my-progress">My Progress</b-nav-item>
+          <b-nav-item to="/">My Progress</b-nav-item>
           <b-nav-item to="/ideal">Ideal</b-nav-item>
           <b-nav-item to="/me-vs-ideal">Me vs Ideal</b-nav-item>
         </b-nav>
