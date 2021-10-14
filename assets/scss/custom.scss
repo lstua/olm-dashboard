@@ -4,6 +4,7 @@ $olm-grey: #e6e6e6;
 $olm-light-grey: #ececec;
 $olm-off-white: #fafafa;
 $olm-dark: #3b4848;
+$olm-highlight: #ffd501;
 
 $theme-colors: (
   'olm-primary': $olm-primary,
@@ -12,6 +13,7 @@ $theme-colors: (
   'olm-light-grey': $olm-light-grey,
   'olm-off-white': $olm-off-white,
   'olm-dark': $olm-dark,
+  'olm-highlight': $olm-highlight,
 );
 
 @import 'bootstrap/scss/bootstrap.scss';

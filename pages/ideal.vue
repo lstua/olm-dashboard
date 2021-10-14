@@ -18,10 +18,11 @@
         <div v-for="topic in topics" class="row mb-1">
           <div class="ml-auto">{{ topic.title }}</div>
           <div class="col-sm-8 pt-1">
-            <b-progress :key="topic.title" :max=100 height="2rem">
+            <b-progress :key="topic.title" :max=101 height="2rem">
               <b-progress-bar :value="topic.understood" variant="olm-primary"></b-progress-bar>
               <b-progress-bar :value="topic.not_understood" variant="olm-secondary"></b-progress-bar>
               <b-progress-bar :value="topic.can_improve" variant="olm-off-white"></b-progress-bar>
+              <b-progress-bar :value=1 variant="olm-highlight"></b-progress-bar>
               <b-progress-bar :value="topic.not_covered" variant="olm-grey"></b-progress-bar>
             </b-progress>
           </div>
@@ -32,7 +33,7 @@
       </div>
     </b-col>
     <b-col>
-      Detail view
+      Goal toggle
     </b-col>
   </b-row>
 </template>
