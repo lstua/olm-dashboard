@@ -1,9 +1,9 @@
 <template>
-  <b-row>
+  <b-row no-gutters>
     <b-col>
       <div>
         <b-col>
-          <b-nav class="shadow-sm mb-3" justified tabs>
+          <b-nav justified>
             <b-nav-item>< Previous</b-nav-item>
             <b-nav-text>Week {{ week }}</b-nav-text>
             <b-nav-item>Next ></b-nav-item>
@@ -27,13 +27,8 @@
           </div>
         </div>
       </div>
-      <div>
-
-      </div>
     </b-col>
-    <b-col>
-      Detail view
-    </b-col>
+    <b-col class="flex-container"></b-col>
   </b-row>
 </template>
 

@@ -8,7 +8,7 @@
       </NuxtLink>
     </b-navbar>
 
-    <b-row>
+    <b-row no-gutters>
       <b-col>
         <b-nav tabs justified class="shadow-sm mb-3">
           <b-nav-item to="/">My Progress</b-nav-item>
@@ -16,7 +16,7 @@
           <b-nav-item to="/me-vs-ideal">Me vs Ideal</b-nav-item>
         </b-nav>
       </b-col>
-      <b-col></b-col>
+      <b-col class="flex-container"></b-col>
     </b-row>
 
     <Nuxt/>
