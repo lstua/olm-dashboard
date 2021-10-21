@@ -28,7 +28,7 @@
         </div>
       </div>
     </b-col>
-    <b-col class="flex-container"></b-col>
+    <b-col class="flex-container-grey"></b-col>
   </b-row>
 </template>
 

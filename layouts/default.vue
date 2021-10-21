@@ -16,7 +16,7 @@
           <b-nav-item to="/me-vs-ideal">Me vs Ideal</b-nav-item>
         </b-nav>
       </b-col>
-      <b-col class="flex-container"></b-col>
+      <b-col class="flex-container-grey"></b-col>
     </b-row>
 
     <Nuxt/>

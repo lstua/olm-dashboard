@@ -16,10 +16,16 @@ $theme-colors: (
   'olm-highlight': $olm-highlight,
 );
 
-.flex-container {
+.flex-container-grey {
   display: flex;
   flex-wrap: nowrap;
   background-color: $olm-grey;
+}
+
+.flex-container-off-white {
+  display: flex;
+  flex-wrap: nowrap;
+  background-color: $olm-off-white;
 }
 
 @import 'bootstrap/scss/bootstrap.scss';

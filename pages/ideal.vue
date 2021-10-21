@@ -4,32 +4,47 @@
       <div>
         <b-col>
           <b-nav justified>
-            <b-nav-item :disabled="weekData.previous === null" @click="updateWeek(weekData.previous)">< Previous</b-nav-item>
+            <b-nav-item :disabled="weekData.previous === null" @click="updateWeek(weekData.previous)">< Previous
+            </b-nav-item>
             <b-nav-text>Week {{ weekData.week }}</b-nav-text>
             <b-nav-item :disabled="weekData.next === null" @click="updateWeek(weekData.next)">Next ></b-nav-item>
           </b-nav>
-        </b-col>
-        <div class="d-flex justify-content-center align-items-center mb-2">
-          <div class="mr-2">To Date</div>
-          <b-form-checkbox v-model="checked" switch>
-            Overall
-          </b-form-checkbox>
-        </div>
-        <div v-for="topic in weekData.topics" class="row mb-1">
-          <div class="ml-auto">{{ topic.title }}</div>
-          <div class="col-sm-8 pt-1 mx-3">
-            <b-progress :key="topic.title" :max=101 height="2rem">
-              <b-progress-bar :value="topic.understood" variant="olm-primary"></b-progress-bar>
-              <b-progress-bar :value="topic.not_understood" variant="olm-secondary"></b-progress-bar>
-              <b-progress-bar :value="topic.can_improve" variant="olm-off-white"></b-progress-bar>
-              <b-progress-bar :value=1 variant="olm-highlight"></b-progress-bar>
-              <b-progress-bar :value="topic.not_covered" variant="olm-grey"></b-progress-bar>
-            </b-progress>
+          <div class="d-flex justify-content-center align-items-center mb-2">
+            <div class="mr-2">To Date</div>
+            <b-form-checkbox v-model="overall" switch>
+              Overall
+            </b-form-checkbox>
           </div>
-        </div>
+          <div v-for="topic in weekData.topics" class="row mb-1">
+            <div class="ml-auto">{{ topic.title }}</div>
+            <div class="col-sm-8 auto pt-1">
+              <b-progress :key="topic.title" :max=101 height="2rem">
+                <b-progress-bar :value="topic.understood" variant="olm-primary"></b-progress-bar>
+                <b-progress-bar :value="topic.not_understood" variant="olm-secondary"></b-progress-bar>
+                <b-progress-bar :value="topic.can_improve" variant="olm-off-white"></b-progress-bar>
+                <b-progress-bar :value=1 variant="olm-highlight"></b-progress-bar>
+                <b-progress-bar :value="topic.not_covered" variant="olm-grey"></b-progress-bar>
+              </b-progress>
+            </div>
+          </div>
+        </b-col>
       </div>
     </b-col>
-    <b-col class="flex-container"></b-col>
+    <b-col class="flex-container-grey container-fluid min-vh-100">
+      <div>
+        <b-col>
+      <b-form-group label="Goal">
+        <b-form-radio
+          v-for="goal in goals"
+          :key="goal.id"
+          v-model="selected"
+          :value="goal.id">
+          {{ goal.name }}
+        </b-form-radio>
+      </b-form-group>
+          </b-col>
+        </div>
+    </b-col>
   </b-row>
 </template>
 
@@ -37,15 +52,21 @@
 export default {
   data() {
     return {
-      weekData: []
+      selected: null,
+      overall: true,
+      weekData: [],
+      goals: []
     }
   },
   async fetch() {
     this.weekData = await this.$axios.$get('user/current')
+    const goalData = await this.$axios.$get('goals')
+    this.goals = goalData.goals
+    this.selected = this.goals[0].id
   },
   methods: {
-    async updateWeek( newWeek ) {
-      this.weekData = await this.$axios.$get(`/user/week/${ newWeek }`)
+    async updateWeek(newWeek) {
+      this.weekData = await this.$axios.$get(`/user/week/${newWeek}`)
     }
   }
 }
