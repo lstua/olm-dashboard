@@ -33,17 +33,17 @@
     <b-col class="flex-container-grey container-fluid min-vh-100">
       <div>
         <b-col>
-      <b-form-group label="Goal">
-        <b-form-radio
-          v-for="goal in goals"
-          :key="goal.id"
-          v-model="selected"
-          :value="goal.id">
-          {{ goal.name }}
-        </b-form-radio>
-      </b-form-group>
-          </b-col>
-        </div>
+          <b-form-group label="Goal">
+            <b-form-radio
+              v-for="goal in goals"
+              :key="goal.id"
+              v-model="selected"
+              :value="goal.id">
+              {{ goal.name }}
+            </b-form-radio>
+          </b-form-group>
+        </b-col>
+      </div>
     </b-col>
   </b-row>
 </template>
