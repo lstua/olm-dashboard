@@ -3,7 +3,7 @@
     <b-navbar type="dark" variant="olm-dark">
       <NuxtLink to="/">
         <b-navbar-brand class="pt-0">
-          INFO1112
+          OLM Dashboard
         </b-navbar-brand>
       </NuxtLink>
     </b-navbar>
