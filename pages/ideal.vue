@@ -47,31 +47,35 @@
 </template>
 
 <script>
-function progressBarHelper(value, goal, progressBar, rendered, variant) {
+function progressBarHelper(value, goal, progressBar, rendered, variant, max) {
   // console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
   if (value + rendered < goal) {
-    progressBar.push({"variant": variant, "value": value})
+    progressBar.push({"variant": variant, "value": (value / max) * 100})
   } else if (value + rendered >= goal && rendered < goal) {
-    progressBar.push({"variant": variant, "value": goal - rendered})
+    progressBar.push({"variant": variant, "value": ((goal - rendered) / max) * 100})
     progressBar.push({"variant": "olm-highlight", "value": 1})
-    progressBar.push({"variant": variant, "value": value - goal + rendered})
+    progressBar.push({"variant": variant, "value": ((value - goal + rendered) / max) * 100})
   }
   return progressBar;
 }
 
-function progressBar(topic, goal) {
+function progressBar(topic, goal, overallToggled) {
   let rendered = 0
   let progressBar = []
-  progressBar = progressBarHelper(topic.understood, goal, progressBar, rendered, "olm-primary");
+  let max = 100
+  if (overallToggled === false) {
+    max = topic.understood + topic.not_understood + topic.can_improve
+  }
+  progressBar = progressBarHelper(topic.understood, goal, progressBar, rendered, "olm-primary", max);
   rendered += topic.understood
-  progressBar = progressBarHelper(topic.not_understood, goal, progressBar, rendered, "olm-secondary");
+  progressBar = progressBarHelper(topic.not_understood, goal, progressBar, rendered, "olm-secondary", max);
   rendered += topic.not_understood
-  progressBar = progressBarHelper(topic.can_improve, goal, progressBar, rendered, "olm-off-white");
+  progressBar = progressBarHelper(topic.can_improve, goal, progressBar, rendered, "olm-off-white", max);
   rendered += topic.can_improve
   if (rendered < goal) {
     progressBar.push({"variant": "olm-highlight", "value": 1})
   }
-  progressBar.push({"variant": "olm-grey", "value": 100 - rendered})
+  progressBar.push({"variant": "olm-grey", "value": max - rendered})
   return progressBar
 }
 export default {
@@ -97,7 +101,7 @@ export default {
     for (const topic of this.weekData.topics) {
       for (const goal of this.goalData.topics) {
         if (topic.title === goal.title) {
-          progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood)})
+          progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood, this.overallToggled)})
         }
       }
     }
@@ -115,7 +119,7 @@ export default {
       for (const topic of this.weekData.topics) {
         for (const goal of this.goalData.topics) {
           if (topic.title === goal.title) {
-            progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood)})
+            progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood, this.overallToggled)})
           }
         }
       }
