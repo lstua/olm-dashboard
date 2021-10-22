@@ -47,6 +47,38 @@
 </template>
 
 <script>
+function progressBarHelper(value, goal, progressBar, rendered, variant) {
+  console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
+  if (value === 0) {
+    return progressBar
+  }
+  if (value + rendered < goal) {
+    progressBar.push({"variant": variant, "value": value})
+  } else if (value + rendered >= goal && rendered < goal) {
+    progressBar.push({"variant": variant, "value": goal - rendered})
+    progressBar.push({"variant": "olm-highlight", "value": 1})
+    progressBar.push({"variant": variant, "value": value - goal + rendered})
+  }
+  return progressBar;
+}
+
+function progressBar(topic, goal) {
+  let rendered = 0
+  let progressBar = []
+  console.log(topic)
+  console.log(goal)
+  progressBar = progressBarHelper(topic.understood, goal, progressBar, rendered, "olm-primary");
+  rendered += topic.understood
+  progressBar = progressBarHelper(topic.not_understood, goal, progressBar, rendered, "olm-secondary");
+  rendered += topic.not_understood
+  progressBar = progressBarHelper(topic.can_improve, goal, progressBar, rendered, "olm-off-white");
+  rendered += topic.can_improve
+  if (rendered < goal) {
+    progressBar.push({"variant": "olm-highlight", "value": 1})
+  }
+  progressBar.push({"variant": "olm-grey", "value": 100 - rendered})
+  return progressBar
+}
 export default {
   data() {
     return {
@@ -76,47 +108,6 @@ export default {
     }
     this.progressData = progressData
     this.fetching = false
-
-    function progressBar(topic, goal) {
-      let rendered = 0
-      const progressBar = []
-      if (topic.understood < goal) {
-        progressBar.push({"variant": "olm-primary", "value": topic.understood})
-        rendered += topic.understood
-      }
-      else if (topic.understood >= goal) {
-        progressBar.push({"variant": "olm-primary", "value": goal})
-        progressBar.push({"variant": "olm-highlight", "value": 1})
-        progressBar.push({"variant": "olm-primary", "value": topic.understood - goal})
-        rendered += topic.understood
-      }
-      if (topic.not_understood <= goal) {
-        progressBar.push({"variant": "olm-secondary", "value": topic.not_understood})
-        rendered += topic.not_understood
-      }
-      else if (topic.not_understood >= goal) {
-        progressBar.push({"variant": "olm-secondary", "value": goal - rendered})
-        progressBar.push({"variant": "olm-highlight", "value": 1})
-        progressBar.push({"variant": "olm-secondary", "value": topic.not_understood - goal + rendered})
-        rendered += topic.not_understood
-      }
-      if (topic.can_improve <= goal) {
-        progressBar.push({"variant": "olm-off-white", "value": topic.can_improve})
-        rendered += topic.can_improve
-      }
-      else if (topic.can_improve >= goal) {
-        progressBar.push({"variant": "olm-off-white", "value": goal - rendered})
-        progressBar.push({"variant": "olm-highlight", "value": 1})
-        progressBar.push({"variant": "olm-off-white", "value": topic.can_improve - goal + rendered})
-        rendered += topic.can_improve
-      }
-      if (rendered <= goal) {
-        progressBar.push({"variant": "olm-highlight", "value": 1})
-      }
-      progressBar.push({"variant": "olm-grey", "value": 100 - rendered})
-
-      return progressBar
-    }
   },
   methods: {
     async updateWeek(newWeek) {
@@ -125,6 +116,15 @@ export default {
     async updateGoal() {
       this.fetching = true
       this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
+      const progressData = []
+      for (const topic of this.weekData.topics) {
+        for (const goal of this.goalData.topics) {
+          if (topic.title === goal.title) {
+            progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood)})
+          }
+        }
+      }
+      this.progressData = progressData
       this.fetching = false
     },
 
