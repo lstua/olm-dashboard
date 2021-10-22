@@ -48,10 +48,7 @@
 
 <script>
 function progressBarHelper(value, goal, progressBar, rendered, variant) {
-  console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
-  if (value === 0) {
-    return progressBar
-  }
+  // console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
   if (value + rendered < goal) {
     progressBar.push({"variant": variant, "value": value})
   } else if (value + rendered >= goal && rendered < goal) {
@@ -65,8 +62,6 @@ function progressBarHelper(value, goal, progressBar, rendered, variant) {
 function progressBar(topic, goal) {
   let rendered = 0
   let progressBar = []
-  console.log(topic)
-  console.log(goal)
   progressBar = progressBarHelper(topic.understood, goal, progressBar, rendered, "olm-primary");
   rendered += topic.understood
   progressBar = progressBarHelper(topic.not_understood, goal, progressBar, rendered, "olm-secondary");
