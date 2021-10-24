@@ -11,15 +11,16 @@
           </b-nav>
           <div class="d-flex justify-content-center align-items-center mb-2">
             <div class="mr-2">To Date</div>
-            <b-form-checkbox v-model="overallToggled" switch>
+            <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
               Overall
             </b-form-checkbox>
           </div>
-          <div v-if="fetching === false" v-for="topic in progressData" class="row mb-1">
+          <div v-for="topic in progressData" v-if="fetching === false" class="row mb-1">
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 auto pt-1">
               <b-progress :key="topic.title" :max=101 height="2rem">
-                <b-progress-bar v-for="progress in topic.data" :value="progress.value" :variant="progress.variant"></b-progress-bar>
+                <b-progress-bar v-for="progress in topic.data" :value="progress.value"
+                                :variant="progress.variant"></b-progress-bar>
               </b-progress>
             </div>
           </div>
@@ -42,7 +43,7 @@
               :key="goal.id"
               v-model="selectedGoal"
               :value="goal.id"
-            @change="updateGoal">
+              @change="updateGoal">
               {{ goal.name }}
             </b-form-radio>
           </b-form-group>
@@ -88,6 +89,7 @@ function progressBar(topic, goal, overallToggled) {
   progressBar.push({"variant": "olm-grey", "value": max - rendered})
   return progressBar
 }
+
 export default {
   components: {Legend},
   data() {
@@ -144,24 +146,24 @@ export default {
   methods: {
     async updateWeek(newWeek) {
       this.weekData = await this.$axios.$get(`/user/week/${newWeek}`)
+      await this.updateProgress()
     },
     async updateGoal() {
-      this.fetching = true
       this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
-      let progressData = []
-      console.log(this.weekData)
-      console.log(this.weekData.topics)
-      for (const topic of this.weekData.topics) {
+      await this.updateProgress()
+    },
+    async updateProgress() {
+      for (let i = 0; i < this.weekData.topics.length; i++) {
         for (const goal of this.goalData.topics) {
-          if (topic.title === goal.title) {
-            progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood, this.overallToggled)})
+          if (this.weekData.topics[i].title === goal.title) {
+            this.progressData[i] = {
+              "title": this.weekData.topics[i].title,
+              "data": progressBar(this.weekData.topics[i], goal.understood, this.overallToggled)
+            }
           }
         }
       }
-      this.progressData = progressData
-      this.fetching = false
-    },
-
+    }
   }
 }
 </script>
