@@ -76,6 +76,10 @@ function progressBar(topic, goal, overallToggled) {
   let max = 100
   if (overallToggled === false) {
     max = topic.understood + topic.not_understood + topic.can_improve
+    if (max === 0) {
+      progressBar.push({"variant": "olm-grey", "value": 100})
+      return progressBar
+    }
   }
   progressBar = progressBarHelper(topic.understood, goal, progressBar, rendered, "olm-primary", max);
   rendered += topic.understood
