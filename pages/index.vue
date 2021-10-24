@@ -19,10 +19,10 @@
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 pt-1">
               <b-progress :key="topic.title" :max=100 height="2rem">
-                <b-progress-bar :value="topic.understood" variant="olm-primary"></b-progress-bar>
-                <b-progress-bar :value="topic.not_understood" variant="olm-secondary"></b-progress-bar>
-                <b-progress-bar :value="topic.can_improve" variant="olm-off-white"></b-progress-bar>
-                <b-progress-bar :value="topic.not_covered" variant="olm-grey"></b-progress-bar>
+                <b-progress-bar :value="topic.primary_colour" variant="olm-primary"></b-progress-bar>
+                <b-progress-bar :value="topic.secondary_colour" variant="olm-secondary"></b-progress-bar>
+                <b-progress-bar :value="topic.white_colour" variant="olm-white"></b-progress-bar>
+                <b-progress-bar :value="topic.grey_colour" variant="olm-grey"></b-progress-bar>
               </b-progress>
             </div>
           </div>
@@ -59,7 +59,7 @@ export default {
         },
         {
           name: "Can improve",
-          variant: "olm-off-white"
+          variant: "olm-white"
         },
         {
           name: "Not yet covered",

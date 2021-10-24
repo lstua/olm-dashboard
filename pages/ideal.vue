@@ -27,7 +27,7 @@
           <div class="d-flex justify-content-center mt-5">
             <div class="ml-auto"></div>
             <div class="col-sm-8 auto">
-              <Legend :legend="legend"/>
+              <Legend :legend="legend.legend"/>
             </div>
           </div>
         </b-col>
@@ -35,7 +35,7 @@
     </b-col>
     <b-col class="flex-container-grey container-fluid min-vh-100 d-flex justify-content-center">
       <div>
-        <b-col class="flex-container-off-white mx-4" justified style="width: 300px">
+        <b-col class="flex-container-white mx-4" justified style="width: 300px">
           <b-form-group label="Goal"
           >
             <b-form-radio
@@ -75,18 +75,18 @@ function progressBar(topic, goal, overallToggled) {
   let progressBar = []
   let max = 100
   if (overallToggled === false) {
-    max = topic.understood + topic.not_understood + topic.can_improve
+    max = topic.primary_colour + topic.secondary_colour + topic.white_colour
     if (max === 0) {
       progressBar.push({"variant": "olm-grey", "value": 100})
       return progressBar
     }
   }
-  progressBar = progressBarHelper(topic.understood, goal, progressBar, rendered, "olm-primary", max);
-  rendered += topic.understood
-  progressBar = progressBarHelper(topic.not_understood, goal, progressBar, rendered, "olm-secondary", max);
-  rendered += topic.not_understood
-  progressBar = progressBarHelper(topic.can_improve, goal, progressBar, rendered, "olm-off-white", max);
-  rendered += topic.can_improve
+  progressBar = progressBarHelper(topic.primary_colour, goal, progressBar, rendered, "olm-primary", max);
+  rendered += topic.primary_colour
+  progressBar = progressBarHelper(topic.secondary_colour, goal, progressBar, rendered, "olm-secondary", max);
+  rendered += topic.secondary_colour
+  progressBar = progressBarHelper(topic.white_colour, goal, progressBar, rendered, "olm-white", max);
+  rendered += topic.white_colour
   if (rendered < goal) {
     progressBar.push({"variant": "olm-highlight", "value": 1})
   }
@@ -105,28 +105,7 @@ export default {
       goals: [],
       goalData: [],
       progressData: [],
-      legend: [
-        {
-          name: "Understood %",
-          variant: "olm-primary"
-        },
-        {
-          name: "Not understood",
-          variant: "olm-secondary"
-        },
-        {
-          name: "Can improve",
-          variant: "olm-off-white"
-        },
-        {
-          name: "Not yet covered",
-          variant: "olm-grey"
-        },
-        {
-          name: "Ideal progress for goal",
-          variant: "olm-highlight"
-        }
-      ]
+      legend: []
     }
   },
   async fetch() {
@@ -135,12 +114,13 @@ export default {
     this.goals = goalsData.goals
     this.selectedGoal = this.goals[0].id
     this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
+    this.legend = await this.$axios.$get('legend')
 
     let progressData = []
     for (const topic of this.weekData.topics) {
       for (const goal of this.goalData.topics) {
         if (topic.title === goal.title) {
-          progressData.push({"title": topic.title, "data": progressBar(topic, goal.understood, this.overallToggled)})
+          progressData.push({"title": topic.title, "data": progressBar(topic, goal.goal, this.overallToggled)})
         }
       }
     }
@@ -162,7 +142,7 @@ export default {
           if (this.weekData.topics[i].title === goal.title) {
             this.progressData[i] = {
               "title": this.weekData.topics[i].title,
-              "data": progressBar(this.weekData.topics[i], goal.understood, this.overallToggled)
+              "data": progressBar(this.weekData.topics[i], goal.goal, this.overallToggled)
             }
           }
         }
