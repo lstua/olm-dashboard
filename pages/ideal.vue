@@ -23,6 +23,12 @@
               </b-progress>
             </div>
           </div>
+          <div class="d-flex justify-content-center mt-5">
+            <div class="ml-auto"></div>
+            <div class="col-sm-8 auto">
+              <Legend :legend="legend"/>
+            </div>
+          </div>
         </b-col>
       </div>
     </b-col>
@@ -47,6 +53,8 @@
 </template>
 
 <script>
+import Legend from "@/components/Legend";
+
 function progressBarHelper(value, goal, progressBar, rendered, variant, max) {
   // console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
   if (value + rendered < goal) {
@@ -55,6 +63,8 @@ function progressBarHelper(value, goal, progressBar, rendered, variant, max) {
     progressBar.push({"variant": variant, "value": ((goal - rendered) / max) * 100})
     progressBar.push({"variant": "olm-highlight", "value": 1})
     progressBar.push({"variant": variant, "value": ((value - goal + rendered) / max) * 100})
+  } else {
+    progressBar.push({"variant": variant, "value": (value / max) * 100})
   }
   return progressBar;
 }
@@ -79,6 +89,7 @@ function progressBar(topic, goal, overallToggled) {
   return progressBar
 }
 export default {
+  components: {Legend},
   data() {
     return {
       fetching: true,
@@ -87,7 +98,29 @@ export default {
       weekData: [],
       goals: [],
       goalData: [],
-      progressData: []
+      progressData: [],
+      legend: [
+        {
+          name: "Understood %",
+          variant: "olm-primary"
+        },
+        {
+          name: "Not understood",
+          variant: "olm-secondary"
+        },
+        {
+          name: "Can improve",
+          variant: "olm-off-white"
+        },
+        {
+          name: "Not yet covered",
+          variant: "olm-grey"
+        },
+        {
+          name: "Ideal progress for goal",
+          variant: "olm-highlight"
+        }
+      ]
     }
   },
   async fetch() {
@@ -97,7 +130,7 @@ export default {
     this.selectedGoal = this.goals[0].id
     this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
 
-    const progressData = []
+    let progressData = []
     for (const topic of this.weekData.topics) {
       for (const goal of this.goalData.topics) {
         if (topic.title === goal.title) {
@@ -115,7 +148,9 @@ export default {
     async updateGoal() {
       this.fetching = true
       this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
-      const progressData = []
+      let progressData = []
+      console.log(this.weekData)
+      console.log(this.weekData.topics)
       for (const topic of this.weekData.topics) {
         for (const goal of this.goalData.topics) {
           if (topic.title === goal.title) {

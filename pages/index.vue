@@ -26,6 +26,12 @@
               </b-progress>
             </div>
           </div>
+          <div class="d-flex justify-content-center mt-5">
+            <div class="ml-auto"></div>
+            <div class="col-sm-8 auto">
+              <Legend :legend="legend"/>
+            </div>
+          </div>
         </b-col>
       </div>
     </b-col>
@@ -34,11 +40,36 @@
 </template>
 
 <script>
+import Legend from "@/components/Legend";
+
 export default {
+  components: {Legend},
   data() {
     return {
       overallToggled: true,
-      weekData: []
+      weekData: [],
+      legend: [
+        {
+          name: "Understood %",
+          variant: "olm-primary"
+        },
+        {
+          name: "Not understood",
+          variant: "olm-secondary"
+        },
+        {
+          name: "Can improve",
+          variant: "olm-off-white"
+        },
+        {
+          name: "Not yet covered",
+          variant: "olm-grey"
+        },
+        {
+          name: "Ideal progress for goal",
+          variant: "olm-highlight"
+        }
+      ]
     }
   },
   async fetch() {
