@@ -16,6 +16,15 @@ $theme-colors: (
   'olm-highlight': $olm-highlight,
 );
 
+.link-invisible {
+  text-decoration: none;
+  color: $olm-dark;
+}
+
+.link-invisible:hover {
+  color: inherit;
+}
+
 .flex-container-grey {
   display: flex;
   flex-wrap: nowrap;

@@ -56,20 +56,6 @@
 <script>
 import Legend from "@/components/Legend";
 
-function progressBarHelper(value, goal, progressBar, rendered, variant, max) {
-  // console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
-  if (value + rendered < goal) {
-    progressBar.push({"variant": variant, "value": (value / max) * 100})
-  } else if (value + rendered >= goal && rendered < goal) {
-    progressBar.push({"variant": variant, "value": ((goal - rendered) / max) * 100})
-    progressBar.push({"variant": "olm-highlight", "value": 1})
-    progressBar.push({"variant": variant, "value": ((value - goal + rendered) / max) * 100})
-  } else {
-    progressBar.push({"variant": variant, "value": (value / max) * 100})
-  }
-  return progressBar;
-}
-
 function progressBar(topic, goal, overallToggled) {
   let rendered = 0
   let progressBar = []
@@ -81,16 +67,14 @@ function progressBar(topic, goal, overallToggled) {
       return progressBar
     }
   }
-  progressBar = progressBarHelper(topic.primary_colour, goal, progressBar, rendered, "olm-primary", max)
-  rendered += topic.primary_colour
-  progressBar = progressBarHelper(topic.secondary_colour, goal, progressBar, rendered, "olm-secondary", max)
-  rendered += topic.secondary_colour
-  progressBar = progressBarHelper(topic.white_colour, goal, progressBar, rendered, "olm-white", max)
-  rendered += topic.white_colour
-  if (rendered < goal) {
-    progressBar.push({"variant": "olm-highlight", "value": 1})
+  if (topic.primary_colour >= goal) {
+    progressBar.push({"variant": "olm-primary", "value": ((topic.primary_colour - goal) / max) * 100})
+    rendered += topic.primary_colour - goal
+  } else {
+    progressBar.push({"variant": "olm-secondary", "value": ((goal - topic.primary_colour) / max) * 100})
+    rendered += goal - topic.primary_colour
   }
-  progressBar.push({"variant": "olm-grey", "value": max - rendered})
+  progressBar.push({"variant": "olm-grey", "value": 100 - rendered})
   return progressBar
 }
 
@@ -114,7 +98,7 @@ export default {
     this.goals = goalsData.goals
     this.selectedGoal = this.goals[0].id
     this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
-    this.legend = await this.$axios.$get('legend/ideal')
+    this.legend = await this.$axios.$get('legend/me-vs-ideal')
 
     let progressData = []
     for (const topic of this.weekData.topics) {
