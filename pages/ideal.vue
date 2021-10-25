@@ -114,7 +114,7 @@ export default {
     this.goals = goalsData.goals
     this.selectedGoal = this.goals[0].id
     this.goalData = await this.$axios.$get(`${this.selectedGoal}/week/${this.weekData.week}`)
-    this.legend = await this.$axios.$get('legend')
+    this.legend = await this.$axios.$get('legend/ideal')
 
     let progressData = []
     for (const topic of this.weekData.topics) {

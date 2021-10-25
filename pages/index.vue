@@ -29,7 +29,7 @@
           <div class="d-flex justify-content-center mt-5">
             <div class="ml-auto"></div>
             <div class="col-sm-8 auto">
-              <Legend :legend="legend"/>
+              <Legend :legend="legend.legend"/>
             </div>
           </div>
         </b-col>
@@ -48,32 +48,12 @@ export default {
     return {
       overallToggled: true,
       weekData: [],
-      legend: [
-        {
-          name: "Understood %",
-          variant: "olm-primary"
-        },
-        {
-          name: "Not understood",
-          variant: "olm-secondary"
-        },
-        {
-          name: "Can improve",
-          variant: "olm-white"
-        },
-        {
-          name: "Not yet covered",
-          variant: "olm-grey"
-        },
-        {
-          name: "Ideal progress for goal",
-          variant: "olm-highlight"
-        }
-      ]
+      legend: []
     }
   },
   async fetch() {
     this.weekData = await this.$axios.$get('user/current')
+    this.legend = await this.$axios.$get('legend/my-progress')
   },
   methods: {
     async updateWeek(newWeek) {
