@@ -121,16 +121,18 @@ export default {
       await this.updateProgress()
     },
     async updateProgress() {
+      let newProgress = []
       for (let i = 0; i < this.weekData.topics.length; i++) {
         for (const goal of this.goalData.topics) {
           if (this.weekData.topics[i].title === goal.title) {
-            this.progressData[i] = {
+            newProgress[i] = {
               "title": this.weekData.topics[i].title,
               "data": progressBar(this.weekData.topics[i], goal.goal, this.overallToggled)
             }
           }
         }
       }
+      this.progressData = newProgress
     }
   }
 }

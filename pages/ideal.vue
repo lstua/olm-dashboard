@@ -57,7 +57,6 @@
 import Legend from "@/components/Legend";
 
 function progressBarHelper(value, goal, progressBar, rendered, variant, max) {
-  // console.log("value: " + value + " goal: " + goal + " rendered: " + rendered + " " + variant)
   if (value + rendered < goal) {
     progressBar.push({"variant": variant, "value": (value / max) * 100})
   } else if (value + rendered >= goal && rendered < goal) {
@@ -137,16 +136,18 @@ export default {
       await this.updateProgress()
     },
     async updateProgress() {
+      let newProgress = []
       for (let i = 0; i < this.weekData.topics.length; i++) {
         for (const goal of this.goalData.topics) {
           if (this.weekData.topics[i].title === goal.title) {
-            this.progressData[i] = {
+            newProgress[i] = {
               "title": this.weekData.topics[i].title,
               "data": progressBar(this.weekData.topics[i], goal.goal, this.overallToggled)
             }
           }
         }
       }
+      this.progressData = newProgress
     }
   }
 }

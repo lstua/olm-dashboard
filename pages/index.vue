@@ -87,12 +87,14 @@ export default {
       await this.updateProgress()
     },
     async updateProgress() {
+      let newProgress = []
       for (let i = 0; i < this.weekData.topics.length; i++) {
-        this.progressData[i] = {
+        newProgress[i] = {
           "title": this.weekData.topics[i].title,
           "data": progressBar(this.weekData.topics[i], this.overallToggled)
         }
       }
+      this.progressData = newProgress
     }
   }
 }
