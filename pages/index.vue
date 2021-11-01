@@ -15,11 +15,11 @@
               Overall
             </b-form-checkbox>
           </div>
-          <div v-for="topic in progressData" class="row mb-1">
+          <div v-for="topic in progressData" class="row mb-1" @click="detailView(topic.title)">
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 pt-1">
               <b-progress :key="topic.title" :max=100 height="2rem">
-                 <b-progress-bar v-for="progress in topic.data" :value="progress.value"
+                <b-progress-bar v-for="progress in topic.data" :value="progress.value"
                                 :variant="progress.variant"></b-progress-bar>
               </b-progress>
             </div>
@@ -33,7 +33,22 @@
         </b-col>
       </div>
     </b-col>
-    <b-col class="flex-container-grey container-fluid min-vh-100 d-flex justify-content-center"></b-col>
+    <b-col class="flex-container-grey container-fluid min-vh-100 d-flex justify-content-center">
+      <div>
+        <b-col v-if="selectedTopicData.length !== 0" class="flex-container-white mx-4" justified style="width: 400px">
+          <div class="ml-auto">{{ selectedTopic }}</div>
+          <div v-for="assessment in selectedTopicData" class="row mb-1">
+            <div class="ml-auto">{{ assessment.title }}</div>
+            <div class="col-sm-8 pt-1">
+              <b-progress :key="assessment.title" :max=100 height="2rem">
+                <b-progress-bar v-for="progress in assessment.data" :value="progress.value"
+                                :variant="progress.variant"></b-progress-bar>
+              </b-progress>
+            </div>
+          </div>
+        </b-col>
+      </div>
+    </b-col>
   </b-row>
 </template>
 
@@ -68,7 +83,9 @@ export default {
       overallToggled: true,
       weekData: [],
       legend: [],
-      progressData: []
+      progressData: [],
+      selectedTopic: "",
+      selectedTopicData: []
     }
   },
   async fetch() {
@@ -86,6 +103,18 @@ export default {
       this.weekData = await this.$axios.$get(`/user/week/${newWeek}`)
       await this.updateProgress()
     },
+    async detailView(topic) {
+      const selectedTopic = await this.$axios.$get(`/user/week/${this.weekData.week}/${topic}`)
+      let newProgress = []
+      for (let i = 0; i < selectedTopic.assessments.length; i++) {
+        newProgress[i] = {
+          "title": selectedTopic.assessments[i].title,
+          "data": progressBar(selectedTopic.assessments[i], this.overallToggled)
+        }
+      }
+      this.selectedTopic = selectedTopic.title
+      this.selectedTopicData = newProgress
+    },
     async updateProgress() {
       let newProgress = []
       for (let i = 0; i < this.weekData.topics.length; i++) {
@@ -99,3 +128,8 @@ export default {
   }
 }
 </script>
+<style>
+   #nav a {
+      color: #3b4848;
+    }
+ </style>

@@ -18,11 +18,20 @@ $theme-colors: (
 
 .link-invisible {
   text-decoration: none;
-  color: $olm-dark;
+  color: inherit;
 }
 
 .link-invisible:hover {
   color: inherit;
+}
+
+.link-olm {
+  text-decoration: none;
+  color: $olm-dark;
+}
+
+.link-olm:hover {
+  color: $olm-dark;
 }
 
 .flex-container-grey {
