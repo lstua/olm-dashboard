@@ -16,6 +16,11 @@ $theme-colors: (
   'olm-highlight': $olm-highlight,
 );
 
+.nav-item a {
+  text-decoration: none;
+  color: $olm-dark;
+}
+
 .link-invisible {
   text-decoration: none;
   color: inherit;

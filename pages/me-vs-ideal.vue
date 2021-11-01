@@ -6,7 +6,7 @@
           <b-nav justified>
             <b-nav-item :disabled="weekData.previous === null" @click="updateWeek(weekData.previous)">< Previous
             </b-nav-item>
-            <b-nav-text>Week {{ weekData.week }}</b-nav-text>
+            <b-nav-text><strong>Week {{ weekData.week }}</strong></b-nav-text>
             <b-nav-item :disabled="weekData.next === null" @click="updateWeek(weekData.next)">Next ></b-nav-item>
           </b-nav>
           <div class="d-flex justify-content-center align-items-center mb-2">
@@ -33,16 +33,17 @@
         </b-col>
       </div>
     </b-col>
-    <b-col class="flex-container-grey container-fluid min-vh-100 d-flex justify-content-center">
+    <b-col class="flex-container-grey container-fluid d-flex justify-content-center">
       <div>
         <b-col class="flex-container-white mx-4" justified style="width: 300px">
-          <b-form-group label="Goal"
-          >
+          <b-form-group>
+            <label style="font-weight: bold">Goal</label>
             <b-form-radio
               v-for="goal in goals"
               :key="goal.id"
               v-model="selectedGoal"
               :value="goal.id"
+              button-variant="danger"
               @change="updateGoal">
               {{ goal.name }}
             </b-form-radio>
