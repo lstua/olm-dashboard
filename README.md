@@ -1,5 +1,11 @@
 # olm-dashboard
 
+## Mock API Setup
+
+Download [Mockoon](https://mockoon.com/) (or similar) and import `olm-dashboard\mock-api.json`
+
+Click the green play button to start the mock server
+
 ## Build Setup
 
 ```bash
