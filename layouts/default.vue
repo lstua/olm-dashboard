@@ -11,9 +11,9 @@
     <b-row no-gutters>
       <b-col>
         <b-nav tabs justified class="shadow-sm mb-3">
-          <b-nav-item to="/" class="link-invisible">My Progress</b-nav-item>
-          <b-nav-item to="/ideal" class="link-invisible">Ideal</b-nav-item>
-          <b-nav-item to="/me-vs-ideal" class="link-invisible">Me vs Ideal</b-nav-item>
+          <b-nav-item to="/" exact exact-active-class="active" class="link-invisible">My Progress</b-nav-item>
+          <b-nav-item to="/ideal" exact exact-active-class="active" class="link-invisible">Ideal</b-nav-item>
+          <b-nav-item to="/me-vs-ideal" exact exact-active-class="active" class="link-invisible">Me vs Ideal</b-nav-item>
         </b-nav>
       </b-col>
       <b-col class="flex-container-grey"></b-col>

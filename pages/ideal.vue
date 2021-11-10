@@ -9,17 +9,28 @@
             <b-nav-text><strong>Week {{ weekData.week }}</strong></b-nav-text>
             <b-nav-item :disabled="weekData.next === null" @click="updateWeek(weekData.next)">Next ></b-nav-item>
           </b-nav>
-          <div class="d-flex justify-content-center align-items-center mb-2">
-            <div class="mr-2">To Date</div>
-            <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
-              Overall
-            </b-form-checkbox>
-          </div>
-          <div v-for="topic in progressData" v-if="fetching === false" class="row mb-1">
+          <b-row>
+            <b-col class="col-sm-2"></b-col>
+            <b-col class="d-flex justify-content-center align-items-center mb-2">
+              <div class="mr-2">To Date</div>
+              <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
+                Overall
+              </b-form-checkbox>
+            </b-col>
+            <b-col class="col-sm-2">
+              <b-button id="info" class="mb-2 float-right" pill size="xs" variant="outline-primary"> ?</b-button>
+              <b-popover target="info" triggers="hover" placement="rightbottom">
+                <template #title>Info</template>
+                On this page you can choose a goal on the right to see how you are tracking!
+              </b-popover>
+            </b-col>
+          </b-row>
+          <div v-for="topic in progressData" v-if="fetching === false" :key="topic.title" class="row mb-1">
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 auto pt-1">
               <b-progress :key="topic.title" :max=101 height="2rem">
-                <b-progress-bar v-for="progress in topic.data" :value="progress.value"
+                <b-progress-bar v-for="progress in topic.data" :key="progress.value + progress.variant"
+                                v-b-tooltip.hover="progress.hover.toFixed(2)" :value="progress.value"
                                 :variant="progress.variant"></b-progress-bar>
               </b-progress>
             </div>
@@ -58,13 +69,17 @@ import Legend from "@/components/Legend";
 
 function progressBarHelper(value, goal, progressBar, rendered, variant, max) {
   if (value + rendered < goal) {
-    progressBar.push({"variant": variant, "value": (value / max) * 100})
+    progressBar.push({"variant": variant, "value": (value / max) * 100, "hover": (value / max) * 100})
   } else if (value + rendered >= goal && rendered < goal) {
-    progressBar.push({"variant": variant, "value": ((goal - rendered) / max) * 100})
-    progressBar.push({"variant": "olm-highlight", "value": 1})
-    progressBar.push({"variant": variant, "value": ((value - goal + rendered) / max) * 100})
+    progressBar.push({"variant": variant, "value": ((goal - rendered) / max) * 100, "hover": (value / max) * 100})
+    progressBar.push({"variant": "olm-highlight", "value": 1, "hover": goal})
+    progressBar.push({
+      "variant": variant,
+      "value": ((value - goal + rendered) / max) * 100,
+      "hover": (value / max) * 100
+    })
   } else {
-    progressBar.push({"variant": variant, "value": (value / max) * 100})
+    progressBar.push({"variant": variant, "value": (value / max) * 100, "hover": (value / max) * 100})
   }
   return progressBar;
 }
@@ -76,7 +91,7 @@ function progressBar(topic, goal, overallToggled) {
   if (overallToggled === false) {
     max = topic.primary_colour + topic.secondary_colour + topic.white_colour
     if (max === 0) {
-      progressBar.push({"variant": "olm-grey", "value": 100})
+      progressBar.push({"variant": "olm-grey", "value": 100, "hover": 100})
       return progressBar
     }
   }
@@ -87,9 +102,9 @@ function progressBar(topic, goal, overallToggled) {
   progressBar = progressBarHelper(topic.white_colour, goal, progressBar, rendered, "olm-white", max)
   rendered += topic.white_colour
   if (rendered < goal) {
-    progressBar.push({"variant": "olm-highlight", "value": 1})
+    progressBar.push({"variant": "olm-highlight", "value": 1, "hover": rendered})
   }
-  progressBar.push({"variant": "olm-grey", "value": max - rendered})
+  progressBar.push({"variant": "olm-grey", "value": max - rendered, "hover": max - rendered})
   return progressBar
 }
 

@@ -9,17 +9,28 @@
             <b-nav-text><strong>Week {{ weekData.week }}</strong></b-nav-text>
             <b-nav-item :disabled="weekData.next === null" @click="updateWeek(weekData.next)">Next ></b-nav-item>
           </b-nav>
-          <div class="d-flex justify-content-center align-items-center mb-2">
-            <div class="mr-2">To Date</div>
-            <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
-              Overall
-            </b-form-checkbox>
-          </div>
+          <b-row>
+            <b-col class="col-sm-2"></b-col>
+            <b-col class="d-flex justify-content-center align-items-center mb-2">
+              <div class="mr-2">To Date</div>
+              <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
+                Overall
+              </b-form-checkbox>
+            </b-col>
+            <b-col class="col-sm-2">
+              <b-button id="info" class="mb-2 float-right" pill size="xs" variant="outline-primary"> ?</b-button>
+              <b-popover target="info" triggers="hover" placement="rightbottom">
+                <template #title>Info</template>
+                Choose a goal on the right to see the difference between your progress and the ideal progress to achieve your goal!
+              </b-popover>
+            </b-col>
+          </b-row>
           <div v-for="topic in progressData" v-if="fetching === false" class="row mb-1">
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 auto pt-1">
-              <b-progress :key="topic.title" :max=101 height="2rem">
-                <b-progress-bar v-for="progress in topic.data" :value="progress.value"
+              <b-progress :key="topic.title" :max=100 height="2rem">
+                <b-progress-bar v-for="progress in topic.data" :key="progress.value + progress.variant"
+                                v-b-tooltip.hover="progress.value.toFixed(2)" :value="progress.value"
                                 :variant="progress.variant"></b-progress-bar>
               </b-progress>
             </div>

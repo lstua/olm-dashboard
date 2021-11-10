@@ -9,18 +9,35 @@
             <b-nav-text><strong>Week {{ weekData.week }}</strong></b-nav-text>
             <b-nav-item :disabled="weekData.next === null" @click="updateWeek(weekData.next)">Next ></b-nav-item>
           </b-nav>
-          <div class="d-flex justify-content-center align-items-center mb-2">
-            <div class="mr-2">To Date</div>
-            <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
-              Overall
-            </b-form-checkbox>
-          </div>
-          <div v-for="topic in progressData" class="row mb-1" @click="detailView(topic.title)">
+          <b-row>
+            <b-col class="col-sm-2"></b-col>
+            <b-col class="d-flex justify-content-center align-items-center mb-2">
+              <div class="mr-2">To Date</div>
+              <b-form-checkbox v-model="overallToggled" switch @change="updateProgress">
+                Overall
+              </b-form-checkbox>
+            </b-col>
+            <b-col class="col-sm-2">
+              <b-button id="info" class="mb-2 float-right" pill size="xs" variant="outline-primary"> ?</b-button>
+              <b-popover target="info" triggers="hover" placement="rightbottom">
+                <template #title>Info</template>
+                On this page you can:
+                <ul>
+                  <li> Navigate between weeks </li>
+                  <li> Toggle between views of course content covered to date, and covered overall</li>
+                  <li> Click on topics for more details </li>
+                </ul>
+                Or navigate to the Ideal or Me vs Ideal pages!
+              </b-popover>
+            </b-col>
+          </b-row>
+          <div v-for="topic in progressData" :key="topic.title" class="row mb-1" @click="detailView(topic.title)">
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 pt-1">
               <b-progress :key="topic.title" :max=100 height="2rem">
-                <b-progress-bar v-for="progress in topic.data" :value="progress.value"
-                                :variant="progress.variant"></b-progress-bar>
+                <b-progress-bar v-for="progress in topic.data" :key="progress.value + progress.variant"
+                                v-b-tooltip.hover="progress.value.toFixed(2)"
+                                :value="progress.value" :variant="progress.variant"></b-progress-bar>
               </b-progress>
             </div>
           </div>
@@ -38,12 +55,13 @@
         <b-col v-if="selectedTopicData.length !== 0" class="mx-4" style="background-color: #fafafa">
           <b-col class="mb-3">
             <b-row class="mb-3 mt-2" no-gutters><strong>{{ selectedTopic }}</strong></b-row>
-            <b-row v-for="assessment in selectedTopicData" class="mb-1" no-gutters>
+            <b-row v-for="assessment in selectedTopicData" :key="assessment.title" class="mb-1" no-gutters>
               <div class="ml-auto mr-3">{{ assessment.title }}</div>
               <b-col class="col-sm-8 auto pt-1">
                 <b-progress :key="assessment.title" :max=100 height="2rem">
-                  <b-progress-bar v-for="progress in assessment.data" :value="progress.value"
-                                  :variant="progress.variant"></b-progress-bar>
+                  <b-progress-bar v-for="progress in assessment.data" :key="progress.value + progress.variant"
+                                  v-b-tooltip.hover="progress.value.toFixed(2)"
+                                  :value="progress.value" :variant="progress.variant"></b-progress-bar>
                 </b-progress>
               </b-col>
             </b-row>

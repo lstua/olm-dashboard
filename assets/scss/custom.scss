@@ -21,6 +21,13 @@ $theme-colors: (
   color: $olm-dark;
 }
 
+.btn-xs.btn-xs, .btn-group-xs > .btn {
+    padding: 0.25rem 0.4rem;
+    font-size: 0.8rem;
+    line-height: 1;
+    border-radius: 0.2rem;
+}
+
 .link-invisible {
   text-decoration: none;
   color: inherit;
