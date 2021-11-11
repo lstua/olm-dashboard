@@ -1,0 +1,554 @@
+{
+    "source": "mockoon:1.16.0",
+    "data": [
+        {
+            "type": "environment",
+            "item": {
+                "uuid": "17f30190-2ce4-11ec-a326-3157d0992be2",
+                "lastMigration": 18,
+                "name": "olm-dashboard",
+                "endpointPrefix": "",
+                "latency": 0,
+                "port": 3001,
+                "hostname": "0.0.0.0",
+                "routes": [
+                    {
+                        "uuid": "37888d50-2f5e-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/current",
+                        "responses": [
+                            {
+                                "uuid": "3788b460-2f5e-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"week\": 8,\n  \"previous\": 6,\n  \"next\": null,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"primary_colour\": 55.00,\n      \"secondary_colour\": 0,\n      \"white_colour\": 11.67,\n      \"grey_colour\": 33.33\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Python programming\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Unix\",\n      \"primary_colour\": 75,\n      \"secondary_colour\": 25,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Data representation\",\n      \"primary_colour\": 83.33,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 16.67,\n      \"white_colour\": 0,\n      \"grey_colour\": 33.33\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 12.50,\n      \"white_colour\": 0,\n      \"grey_colour\": 50.00\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100.00\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "17f34fb0-2ce4-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/8 - alice",
+                        "responses": [
+                            {
+                                "uuid": "17f34fb1-2ce4-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"week\": 8,\n  \"previous\": 6,\n  \"next\": null,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"primary_colour\": 55.00,\n      \"secondary_colour\": 0,\n      \"white_colour\": 11.67,\n      \"grey_colour\": 33.33\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Python programming\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Unix\",\n      \"primary_colour\": 75,\n      \"secondary_colour\": 25,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Data representation\",\n      \"primary_colour\": 83.33,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 16.67,\n      \"white_colour\": 0,\n      \"grey_colour\": 33.33\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 12.50,\n      \"white_colour\": 0,\n      \"grey_colour\": 50.00\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100.00\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "ade387a1-8b51-401d-9ab5-1a7515009d1d",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/8",
+                        "responses": [
+                            {
+                                "uuid": "268277de-ca73-45e6-b6c9-ae7bbc9b8b5b",
+                                "body": "{\n  \"week\": 8,\n  \"previous\": 6,\n  \"next\": null,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"primary_colour\": 55.00,\n      \"secondary_colour\": 0,\n      \"white_colour\": 11.67,\n      \"grey_colour\": 33.33\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Python programming\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 62.50,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Unix\",\n      \"primary_colour\": 50,\n      \"secondary_colour\": 50,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Data representation\",\n      \"primary_colour\": 62.50,\n      \"secondary_colour\": 20.83,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"primary_colour\": 33.33,\n      \"secondary_colour\": 33.34,\n      \"white_colour\": 0,\n      \"grey_colour\": 33.33\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"primary_colour\": 25,\n      \"secondary_colour\": 25,\n      \"white_colour\": 0,\n      \"grey_colour\": 50.00\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100.00\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "0dc485f1-82ec-4582-b969-c948b0c0063e",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/6 - alice",
+                        "responses": [
+                            {
+                                "uuid": "0613c7de-f77b-482f-b2fb-0d10dd430f8c",
+                                "body": "{\n  \"week\": 6,\n  \"previous\": null,\n  \"next\": 8,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 0,\n      \"white_colour\": 12.50,\n      \"grey_colour\": 50\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Python programming\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Unix\",\n      \"primary_colour\": 62.50,\n      \"secondary_colour\": 20.83,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Data representation\",\n      \"primary_colour\": 83.33,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 12.50,\n      \"white_colour\": 0,\n      \"grey_colour\": 50\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100.00\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "05295167-0544-4656-a82a-0a740d117001",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/6",
+                        "responses": [
+                            {
+                                "uuid": "2471468c-bfd1-4d6c-acea-fa255395c47e",
+                                "body": "{\n  \"week\": 6,\n  \"previous\": null,\n  \"next\": 8,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 0,\n      \"white_colour\": 12.50,\n      \"grey_colour\": 50\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"primary_colour\": 50.00,\n      \"secondary_colour\": 50.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Python programming\",\n      \"primary_colour\": 37.50,\n      \"secondary_colour\": 62.50,\n      \"white_colour\": 0,\n      \"grey_colour\": 0\n    },\n    {\n      \"title\": \"Unix\",\n      \"primary_colour\": 41.66,\n      \"secondary_colour\": 41.66,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Data representation\",\n      \"primary_colour\": 62.50,\n      \"secondary_colour\": 20.83,\n      \"white_colour\": 0,\n      \"grey_colour\": 16.67\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"primary_colour\": 25,\n      \"secondary_colour\": 25,\n      \"white_colour\": 0,\n      \"grey_colour\": 50\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100.00\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "1ddb38c4-5548-4ba7-9e7a-ebf41f5af54f",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/8/networks%20and%20security",
+                        "responses": [
+                            {
+                                "uuid": "84ff14bf-34d2-4269-b768-e36ea563db84",
+                                "body": "{\n  \"title\": \"Networks and security\",\n  \"assessments\": [\n    {\n      \"title\": \"Assignment 3\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100,\n      \"weight\": 30\n    },\n    {\n      \"title\": \"Mid-sem quiz\",\n      \"primary_colour\": 48.75,\n      \"secondary_colour\": 51.25,\n      \"white_colour\": 0,\n      \"grey_colour\": 0,\n      \"weight\": 10\n    },\n    {\n      \"title\": \"End-sem quiz\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100,\n      \"weight\": 10\n    },\n    {\n      \"title\": \"Homework\",\n      \"primary_colour\": 55,\n      \"secondary_colour\": 25,\n      \"white_colour\": 0,\n      \"grey_colour\": 20,\n      \"weight\": 30\n    },\n    {\n      \"title\": \"Labwork\",\n      \"primary_colour\": 67.5,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 32.5,\n      \"weight\": 20\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "0977d06a-ca8e-4db5-8dc5-3e30f977886a",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/6/networks%20and%20security",
+                        "responses": [
+                            {
+                                "uuid": "9af9ba08-2895-4c64-aac3-9b32ff34fac3",
+                                "body": "{\n  \"title\": \"Networks and security\",\n  \"assessments\": [\n    {\n      \"title\": \"Assignment 3\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100,\n      \"weight\": 30\n    },\n    {\n      \"title\": \"Mid-sem quiz\",\n      \"primary_colour\": 48.75,\n      \"secondary_colour\": 51.25,\n      \"white_colour\": 0,\n      \"grey_colour\": 0,\n      \"weight\": 10\n    },\n    {\n      \"title\": \"End-sem quiz\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100,\n      \"weight\": 10\n    },\n    {\n      \"title\": \"Homework\",\n      \"primary_colour\": 45,\n      \"secondary_colour\": 20,\n      \"white_colour\": 0,\n      \"grey_colour\": 35,\n      \"weight\": 30\n    },\n    {\n      \"title\": \"Labwork\",\n      \"primary_colour\": 60,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 40,\n      \"weight\": 20\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "004ef7e3-9d84-49fa-9bc9-f2d8bd420d32",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/user/week/[1-9]{1,2}/*",
+                        "responses": [
+                            {
+                                "uuid": "23db7e4d-0b37-4fb1-956d-04a38bcb4240",
+                                "body": "{\n  \"title\": \"Computer Architecture\",\n  \"assessments\": [\n    {\n      \"title\": \"Assessment 1\",\n      \"primary_colour\": 50,\n      \"secondary_colour\": 50,\n      \"white_colour\": 0,\n      \"grey_colour\": 0,\n      \"weight\": 20\n    },\n    {\n      \"title\": \"Assessment 2\",\n      \"primary_colour\": 50,\n      \"secondary_colour\": 50,\n      \"white_colour\": 0,\n      \"grey_colour\": 0,\n      \"weight\": 20\n    },\n    {\n      \"title\": \"Quiz\",\n      \"primary_colour\": 60.00,\n      \"secondary_colour\": 40.00,\n      \"white_colour\": 0,\n      \"grey_colour\": 0,\n      \"weight\": 10\n    },\n    {\n      \"title\": \"Exam\",\n      \"primary_colour\": 0,\n      \"secondary_colour\": 0,\n      \"white_colour\": 0,\n      \"grey_colour\": 100,\n      \"weight\": 50\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "d421dfa0-2f58-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/high-distinction/week/8",
+                        "responses": [
+                            {
+                                "uuid": "d421dfa1-2f58-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"week\": 8,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 55\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 90\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 90\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 75\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 80\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 52\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 45\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "be45d8c5-a8fd-47fc-8afa-2936bf245cc4",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/high-distinction/week/6",
+                        "responses": [
+                            {
+                                "uuid": "a8d43c3a-fa36-42f4-b273-e6d97d1c61f6",
+                                "body": "{\n  \"week\": 6,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 50\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 90\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 90\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 80\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 45\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 0\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "50935370-2f59-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/distinction/week/8",
+                        "responses": [
+                            {
+                                "uuid": "50935371-2f59-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"week\": 8,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 50\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 85\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 67.5\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 47\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 40\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "5be5c152-9c36-47e7-b3c1-67740d65e5ea",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/distinction/week/6",
+                        "responses": [
+                            {
+                                "uuid": "21d57117-e0fe-48d5-8f8c-a57976914a3f",
+                                "body": "{\n  \"week\": 6,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 35\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 85\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 57.5\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 40\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 0\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "55bac0e0-2f59-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/credit/week/8",
+                        "responses": [
+                            {
+                                "uuid": "55bac0e1-2f59-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"week\": 8,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 45\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 75\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 65\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 60\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 60\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 40\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 35\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "1bb6af17-9f7c-4374-ba30-7e2f32bb459e",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/credit/week/6",
+                        "responses": [
+                            {
+                                "uuid": "1fc19761-73ed-43a4-b793-6d4234fece1a",
+                                "body": "{\n  \"week\": 6,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 30\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 75\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 65\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 55\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 35\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 0\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "5baad580-2f59-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/pass/week/8",
+                        "responses": [
+                            {
+                                "uuid": "5baad581-2f59-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"week\": 8,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 40\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 60\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 55\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 60\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 35\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 30\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "29387edf-f030-4f58-8727-9e5651a4d23b",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/pass/week/6",
+                        "responses": [
+                            {
+                                "uuid": "9614cbdd-abef-4e16-9246-f8114db7951f",
+                                "body": "{\n  \"week\": 6,\n  \"topics\": [\n    {\n      \"title\": \"Engagement\",\n      \"goal\": 30\n    },\n    {\n      \"title\": \"Assumed knowledge\",\n      \"goal\": 70\n    },\n    {\n      \"title\": \"Python programming\",\n      \"goal\": 60\n    },\n    {\n      \"title\": \"Unix\",\n      \"goal\": 50\n    },\n    {\n      \"title\": \"Data representation\",\n      \"goal\": 65\n    },\n    {\n      \"title\": \"Computer architecture\",\n      \"goal\": 35\n    },\n    {\n      \"title\": \"Networks and security\",\n      \"goal\": 0\n    },\n    {\n      \"title\": \"Cloud and containers\",\n      \"goal\": 0\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "789a5da0-2f59-11ec-a326-3157d0992be2",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/goals",
+                        "responses": [
+                            {
+                                "uuid": "789a5da1-2f59-11ec-a326-3157d0992be2",
+                                "body": "{\n  \"goals\": [\n    {\n\t\t  \"name\": \"High Distinction\",\n\t\t  \"id\": \"high-distinction\"\n    },\n    {\n\t\t  \"name\": \"Distinction\",\n\t\t  \"id\": \"distinction\"\n    },\n    {\n\t\t  \"name\": \"Credit\",\n\t\t  \"id\": \"credit\"\n\t\t},\n\t\t{\n\t\t  \"name\": \"Pass\",\n\t\t  \"id\": \"pass\"\n\t\t}\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "4ee76ebf-d703-4b1f-b40b-4779b5e2ec19",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/legend/my-progress",
+                        "responses": [
+                            {
+                                "uuid": "3ea9717a-5506-46a8-a308-a145de1b4dbb",
+                                "body": "{\n  \"legend\": [\n    {\n\t\t  \"name\": \"Understood %\",\n\t\t  \"variant\": \"primary\",\n\t\t  \"info\" : \"How much of the course you understand\"\n    },\n    {\n\t\t  \"name\": \"Not understood\",\n\t\t  \"variant\": \"secondary\",\n\t\t  \"info\" : \"How much of the course you don't understand\"\n    },\n    {\n\t\t  \"name\": \"Can improve\",\n\t\t  \"variant\": \"white\",\n\t\t  \"info\" : \"Areas where you can still gain marks in the course\"\n    },\n    {\n\t\t  \"name\": \"Not yet covered\",\n\t\t  \"variant\": \"grey\",\n\t\t  \"info\" : \"This content hasn't been covered in the course yet\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "9ae14fe1-a06d-4fe3-990e-6b59873c7e1e",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/legend/ideal",
+                        "responses": [
+                            {
+                                "uuid": "2345687d-dfda-4b1f-95b3-336837ded054",
+                                "body": "{\n  \"legend\": [\n    {\n\t\t  \"name\": \"Understood %\",\n\t\t  \"variant\": \"primary\",\n\t\t  \"info\" : \"How much of the course you understand\"\n    },\n    {\n\t\t  \"name\": \"Not understood\",\n\t\t  \"variant\": \"secondary\",\n\t\t  \"info\" : \"How much of the course you don't understand\"\n    },\n    {\n\t\t  \"name\": \"Can improve\",\n\t\t  \"variant\": \"white\",\n\t\t  \"info\" : \"Areas where you can still gain marks in the course\"\n    },\n    {\n\t\t  \"name\": \"Not yet covered\",\n\t\t  \"variant\": \"grey\",\n\t\t  \"info\" : \"This content hasn't been covered in the course yet\"\n    },\n    {\n\t\t  \"name\": \"Ideal progress for goal\",\n\t\t  \"variant\": \"highlight\",\n\t\t  \"info\" : \"The ideal progress you should be at to achieve your goal\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    },
+                    {
+                        "uuid": "77de60b8-4d59-434d-be71-74938c9a5e62",
+                        "documentation": "",
+                        "method": "get",
+                        "endpoint": "olm/legend/me-vs-ideal",
+                        "responses": [
+                            {
+                                "uuid": "47028ce4-1e1c-4caf-942a-013ded179879",
+                                "body": "{\n  \"legend\": [\n    {\n\t\t  \"name\": \"Ahead %\",\n\t\t  \"variant\": \"primary\",\n\t\t  \"info\" : \"How far you are ahead of your goal\"\n    },\n    {\n\t\t  \"name\": \"Behind\",\n\t\t  \"variant\": \"secondary\",\n\t\t  \"info\" : \"How much you need to improve to reach your goal\"\n    },\n    {\n\t\t  \"name\": \"Not yet covered\",\n\t\t  \"variant\": \"grey\",\n\t\t  \"info\" : \"This content hasn't been covered in the course yet\"\n    }\n  ]\n}",
+                                "latency": 0,
+                                "statusCode": 200,
+                                "label": "",
+                                "headers": [],
+                                "filePath": "",
+                                "sendFileAsBody": false,
+                                "rules": [],
+                                "rulesOperator": "OR",
+                                "disableTemplating": false,
+                                "fallbackTo404": false
+                            }
+                        ],
+                        "enabled": true,
+                        "randomResponse": false,
+                        "sequentialResponse": false
+                    }
+                ],
+                "proxyMode": false,
+                "proxyHost": "",
+                "proxyRemovePrefix": false,
+                "https": false,
+                "cors": true,
+                "headers": [
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Methods",
+                        "value": "GET,POST,PUT,PATCH,DELETE,HEAD,OPTIONS"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Headers",
+                        "value": "Content-Type, Origin, Accept, Authorization, Content-Length, X-Requested-With"
+                    }
+                ],
+                "proxyReqHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ],
+                "proxyResHeaders": [
+                    {
+                        "key": "",
+                        "value": ""
+                    }
+                ]
+            }
+        }
+    ]
+}

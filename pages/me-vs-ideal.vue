@@ -19,9 +19,10 @@
             </b-col>
             <b-col class="col-sm-2">
               <b-button id="info" class="mb-2 float-right" pill size="xs" variant="outline-primary"> ?</b-button>
-              <b-popover target="info" triggers="hover" placement="rightbottom">
+              <b-popover placement="rightbottom" target="info" triggers="hover">
                 <template #title>Info</template>
-                Choose a goal on the right to see the difference between your progress and the ideal progress to achieve your goal!
+                Choose a goal on the right to see the difference between your progress and the ideal progress to achieve
+                your goal!
               </b-popover>
             </b-col>
           </b-row>

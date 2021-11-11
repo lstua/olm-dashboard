@@ -37,15 +37,6 @@ $theme-colors: (
   color: inherit;
 }
 
-.link-olm {
-  text-decoration: none;
-  color: $olm-dark;
-}
-
-.link-olm:hover {
-  color: $olm-dark;
-}
-
 .flex-container-grey {
   display: flex;
   flex-wrap: nowrap;

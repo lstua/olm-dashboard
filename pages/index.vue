@@ -63,17 +63,17 @@
               </b-col>
             </b-row>
             <b-row v-for="assessment in selectedTopicData" :key="assessment.title" class="mb-1" no-gutters>
-                <div class="ml-auto mr-3">{{ assessment.title }}</div>
-                <b-col class="col-sm-6 auto pt-1">
-                  <b-progress :key="assessment.title" :max=100 height="2rem">
-                    <b-progress-bar v-for="progress in assessment.data" :key="progress.value + progress.variant"
-                                    v-b-tooltip.hover="progress.value.toFixed(2)"
-                                    :value="progress.value" :variant="progress.variant"></b-progress-bar>
-                  </b-progress>
-                </b-col>
-                <b-col class="col-sm-2">
-                  <div class="ml-3">{{ assessment.weight }}</div>
-                </b-col>
+              <div class="ml-auto mr-3">{{ assessment.title }}</div>
+              <b-col class="col-sm-6 auto pt-1">
+                <b-progress :key="assessment.title" :max=100 height="2rem">
+                  <b-progress-bar v-for="progress in assessment.data" :key="progress.value + progress.variant"
+                                  v-b-tooltip.hover="progress.value.toFixed(2)"
+                                  :value="progress.value" :variant="progress.variant"></b-progress-bar>
+                </b-progress>
+              </b-col>
+              <b-col class="col-sm-2">
+                <div class="ml-3">{{ assessment.weight }}</div>
+              </b-col>
             </b-row>
           </b-col>
         </b-col>

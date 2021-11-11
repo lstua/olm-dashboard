@@ -19,9 +19,11 @@
             </b-col>
             <b-col class="col-sm-2">
               <b-button id="info" class="mb-2 float-right" pill size="xs" variant="outline-primary"> ?</b-button>
-              <b-popover target="info" triggers="hover" placement="rightbottom">
+              <b-popover placement="rightbottom" target="info" triggers="hover">
                 <template #title>Info</template>
                 On this page you can choose a goal on the right to see how you are tracking!
+                <br><br>
+                This page shows you the ideal student progress in each topic for the goal you have selected.
               </b-popover>
             </b-col>
           </b-row>
@@ -29,7 +31,7 @@
             <div class="ml-auto">{{ topic.title }}</div>
             <div class="col-sm-8 auto pt-1">
               <b-progress :key="topic.title" :max=101 height="2rem">
-                <b-progress-bar v-for="progress in topic.data" :key="progress.value + progress.variant"
+                <b-progress-bar v-for="progress in topic.data"
                                 v-b-tooltip.hover="progress.hover.toFixed(2)" :value="progress.value"
                                 :variant="progress.variant"></b-progress-bar>
               </b-progress>
