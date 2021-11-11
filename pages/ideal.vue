@@ -93,6 +93,7 @@ function progressBar(topic, goal, overallToggled) {
   if (overallToggled === false) {
     max = topic.primary_colour + topic.secondary_colour + topic.white_colour
     if (max === 0) {
+      progressBar.push({"variant": "olm-highlight", "value": 1, "hover": 0})
       progressBar.push({"variant": "olm-grey", "value": 100, "hover": 100})
       return progressBar
     }
@@ -103,7 +104,7 @@ function progressBar(topic, goal, overallToggled) {
   rendered += topic.secondary_colour
   progressBar = progressBarHelper(topic.white_colour, goal, progressBar, rendered, "olm-white", max)
   rendered += topic.white_colour
-  if (rendered < goal) {
+  if (rendered < goal || goal === 0) {
     progressBar.push({"variant": "olm-highlight", "value": 1, "hover": rendered})
   }
   progressBar.push({"variant": "olm-grey", "value": max - rendered, "hover": max - rendered})
